@@ -885,7 +885,7 @@ def assert_series_equal(
         )
 
     if check_like:
-        left, right = left.reindex_like(right), right
+        left = left.reindex_like(right)
 
     if check_freq and isinstance(left.index, (DatetimeIndex, TimedeltaIndex)):
         lidx = left.index
@@ -1167,7 +1167,7 @@ def assert_frame_equal(
     )
 
     if check_like:
-        left, right = left.reindex_like(right), right
+        left = left.reindex_like(right)
 
     # compare by blocks
     if by_blocks:

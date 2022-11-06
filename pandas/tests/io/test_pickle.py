@@ -283,8 +283,9 @@ class TestCompression:
             raise ValueError(msg)
 
         if compression not in ["zip", "tar"]:
-            with open(src_path, "rb") as fh, f:
-                f.write(fh.read())
+            with open(src_path, "rb") as fh:
+                with open(src_path, "rb") as f:
+                    f.write(fh.read())
 
     def test_write_explicit(self, compression, get_random_path):
         base = get_random_path
