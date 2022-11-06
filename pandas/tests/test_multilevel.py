@@ -195,9 +195,7 @@ class TestMultiLevel:
 
         level_name = frame.index.names[level]
 
-        if axis == 0:
-            frame = frame
-        else:
+        if axis != 0:
             frame = frame.T
 
         grouped = frame.groupby(level=level, axis=axis, sort=sort)
